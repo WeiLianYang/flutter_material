@@ -26,6 +26,9 @@ class LoginPageWidget extends StatefulWidget {
 }
 
 class LoginState extends State<LoginPageWidget> {
+  final _usernameController = TextEditingController();
+  final _passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,7 +46,44 @@ class LoginState extends State<LoginPageWidget> {
             ),
             SizedBox(
               height: 120,
-            )
+            ),
+            // [Name]
+            TextField(
+              // https://docs.flutter.io/flutter/material/TextField-class.html
+              controller: _usernameController,
+              decoration: InputDecoration(
+                filled: true,
+                labelText: 'Username',
+              ),
+            ),
+            // spacer
+            SizedBox(height: 12.0),
+            // [Password]
+            TextField(
+              controller: _passwordController,
+              decoration: InputDecoration(
+                filled: true,
+                labelText: 'Password',
+              ),
+              obscureText: true, // 将用户的输入自动替换为星号，一般用于密码文本框。
+            ),
+            ButtonBar(
+              children: <Widget>[
+                FlatButton(
+                  child: Text('CANCEL'),
+                  onPressed: () {
+                    _usernameController.clear();
+                    _passwordController.clear();
+                  },
+                ),
+                RaisedButton(
+                  child: Text('NEXT'),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                ),
+              ],
+            ),
           ],
         ),
       ),
