@@ -19,15 +19,23 @@ import 'package:flutter/material.dart';
 import 'package:flutter_material/home.dart';
 import 'package:flutter_material/login.dart';
 
+import 'colors.dart';
+
 /// 应用主页
 class ShrineApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final ThemeData _kShrineTheme = _buildShrineTheme();
+
     return MaterialApp(
       title: 'Shrine',
       home: HomePage(),
-      initialRoute: '/login_route', // 初始路径
-      onGenerateRoute: _getRoute, // 生成路径
+      // 初始路径
+      initialRoute: '/login_route',
+      // 生成路径
+      onGenerateRoute: _getRoute,
+      // 设置主题
+      theme: _kShrineTheme,
     );
   }
 
@@ -42,5 +50,46 @@ class ShrineApp extends StatelessWidget {
       builder: (BuildContext context) => LoginPageWidget(),
       fullscreenDialog: true,
     );
+  }
+
+  ThemeData _buildShrineTheme() {
+    final ThemeData base = ThemeData.light();
+    return base.copyWith(
+      accentColor: kShrineBrown900,
+      primaryColor: kShrinePink100,
+      buttonColor: kShrinePink100,
+      scaffoldBackgroundColor: kShrineBackgroundWhite,
+      cardColor: kShrineBackgroundWhite,
+      textSelectionColor: kShrinePink100,
+      errorColor: kShrineErrorRed,
+      textTheme: _buildShrineTextTheme(base.textTheme),
+      primaryTextTheme: _buildShrineTextTheme(base.primaryTextTheme),
+      accentTextTheme: _buildShrineTextTheme(base.accentTextTheme),
+      primaryIconTheme: base.iconTheme.copyWith(color: kShrineBrown900),
+      // 控制顶部状态栏的按钮颜色
+      inputDecorationTheme: InputDecorationTheme(
+        border: OutlineInputBorder(),
+      ), // 指定输入框的主题
+    );
+  }
+
+  TextTheme _buildShrineTextTheme(TextTheme base) {
+    return base
+        .copyWith(
+          headline: base.headline!.copyWith(
+            fontWeight:
+                FontWeight.w500, // w500（字重为 500）通常代表中等加粗，而 w400 则代表正常显示的字体
+          ),
+          title: base.title!.copyWith(fontSize: 18.0),
+          caption: base.caption!.copyWith(
+            fontWeight: FontWeight.w400,
+            fontSize: 14.0,
+          ),
+        )
+        .apply(
+          fontFamily: 'Rubik',
+          displayColor: kShrineBrown900,
+          bodyColor: kShrineBrown900,
+        );
   }
 }
