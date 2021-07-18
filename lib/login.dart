@@ -39,7 +39,7 @@ class LoginState extends State<LoginPageWidget> {
             SizedBox(height: 60),
             Column(
               children: <Widget>[
-                Image.asset('../assets/diamond.png'),
+                Image.asset('assets/diamond.png'),
                 SizedBox(height: 14),
                 Text('Shrine'),
               ],

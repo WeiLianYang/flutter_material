@@ -31,6 +31,7 @@ class ShrineApp extends StatelessWidget {
     );
   }
 
+  /// 以单下划线开头的函数即是私有的
   Route<dynamic>? _getRoute(RouteSettings settings) {
     if (settings.name != '/login_route') {
       return null;
