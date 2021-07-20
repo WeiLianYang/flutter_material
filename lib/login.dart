@@ -77,12 +77,19 @@ class LoginState extends State<LoginPageWidget> {
             ),
             ButtonBar(
               children: <Widget>[
-                TextButton(
+                FlatButton(
                   child: Text('CANCEL'),
                   onPressed: () {
                     _usernameController.clear();
                     _passwordController.clear();
                   },
+                  // 形状（Shapes）的要点：
+                  // - 形状帮助促进品牌的视觉效果传达；
+                  // - 形状具有可调曲线和角部无角度，曲线和边角以及角部总数；
+                  // - 组件的形状不应干扰其可用性。
+                  shape: BeveledRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(7.0)),
+                  ),
                 ),
                 RaisedButton(
                   child: Text('NEXT'),
@@ -95,6 +102,9 @@ class LoginState extends State<LoginPageWidget> {
                   onPressed: () {
                     Navigator.pop(context);
                   },
+                  shape: BeveledRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(7.0)),
+                  ),
                 ),
               ],
             ),

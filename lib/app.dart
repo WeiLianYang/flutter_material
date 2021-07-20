@@ -20,6 +20,7 @@ import 'package:flutter_material/home.dart';
 import 'package:flutter_material/login.dart';
 
 import 'colors.dart';
+import 'supplemental/cut_corners_border.dart';
 
 /// 应用主页
 class ShrineApp extends StatelessWidget {
@@ -68,7 +69,7 @@ class ShrineApp extends StatelessWidget {
       primaryIconTheme: base.iconTheme.copyWith(color: kShrineBrown900),
       // 控制顶部状态栏的按钮颜色
       inputDecorationTheme: InputDecorationTheme(
-        border: OutlineInputBorder(),
+        border: CutCornersBorder(),
       ), // 指定输入框的主题
     );
   }

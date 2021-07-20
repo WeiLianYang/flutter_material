@@ -19,12 +19,14 @@ import 'package:intl/intl.dart';
 
 import 'model/product.dart';
 import 'model/products_repository.dart';
+import 'supplemental/asymmetric_view.dart';
 
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        brightness: Brightness.light, // 状态栏主题色（顶部的时间和网络）现在变成了黑色
         leading: IconButton(
           icon: Icon(
             Icons.menu,
@@ -54,6 +56,9 @@ class HomePage extends StatelessWidget {
               ))
         ],
       ),
+      body: AsymmetricView(
+          products: ProductsRepository.loadProducts(Category.all)),
+      /*
       body: GridView.count(
         crossAxisCount: 2,
         // 指定每横行展示2个条目
@@ -64,6 +69,7 @@ class HomePage extends StatelessWidget {
         // children: _buildGridList(10),
         children: _buildGridCards(context),
       ),
+      */
     );
   }
 
