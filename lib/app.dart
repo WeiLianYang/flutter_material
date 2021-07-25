@@ -19,7 +19,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_material/home.dart';
 import 'package:flutter_material/login.dart';
 
+import 'backdrop.dart';
 import 'colors.dart';
+import 'model/product.dart';
 import 'supplemental/cut_corners_border.dart';
 
 /// 应用主页
@@ -30,7 +32,13 @@ class ShrineApp extends StatelessWidget {
 
     return MaterialApp(
       title: 'Shrine',
-      home: HomePage(),
+      home: Backdrop(
+        currentCategory: Category.all,
+        frontLayer: HomePage(),
+        backLayer: Container(color: kShrinePink100),
+        frontTitle: Text('Shrine'),
+        backTitle: Text('Menu'),
+      ),
       // 初始路径
       initialRoute: '/login_route',
       // 生成路径

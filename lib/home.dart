@@ -25,6 +25,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      /*
       appBar: AppBar(
         brightness: Brightness.light, // 状态栏主题色（顶部的时间和网络）现在变成了黑色
         leading: IconButton(
@@ -56,6 +57,7 @@ class HomePage extends StatelessWidget {
               ))
         ],
       ),
+      */
       body: AsymmetricView(
           products: ProductsRepository.loadProducts(Category.all)),
       /*
